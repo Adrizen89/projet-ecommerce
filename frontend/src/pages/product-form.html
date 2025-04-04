@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer un Produit</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>Notre Boutique</h1>
+            <div class="nav-links">
+                <a href="/">Accueil</a>
+                <a href="/products.html">Produits</a>
+                <a href="/cart.html">Panier</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <h2 id="form-title">Ajouter un Produit</h2>
+        <form id="productForm" class="card mt-4 p-4">
+            <div class="form-group">
+                <label for="libelle">Nom du produit</label>
+                <input type="text" id="libelle" name="libelle" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="prix">Prix (€)</label>
+                <input type="number" id="prix" name="prix" class="form-control" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="categorie">Catégorie</label>
+                <select id="categorie" name="categorie" class="form-control" required>
+                    <option value="Smartphones">Smartphones</option>
+                    <option value="Ordinateurs">Ordinateurs</option>
+                    <option value="Tablettes">Tablettes</option>
+                    <option value="Accessoires">Accessoires</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" id="stock" name="stock" class="form-control" min="0" required>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <a href="/products.html" class="btn">Annuler</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html> 

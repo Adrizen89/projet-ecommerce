@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="">
+    <title>Produits</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Notre Boutique</h1>
+            <div class="nav-links">
+                <a href="/">Accueil</a>
+                <a href="/products.html" class="active">Produits</a>
+                <a href="/cart.html" class="cart-link">
+                    Panier
+                    <span id="cart-badge" class="badge">0</span>
+                </a>
+                <div class="auth-links">
+                    <a href="/profile.html" id="profileLink" style="display: none;">Mon Profil</a>
+                    <a href="/login.html" id="loginLink">Connexion</a>
+                    <a href="/register.html" id="registerLink">Inscription</a>
+                    <button id="logoutBtn" style="display: none;" class="btn">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <div class="products-header">
+            <h2>Nos Produits</h2>
+            <button id="add-product-btn" class="btn btn-primary" style="display: none;">
+                Ajouter un produit
+            </button>
+        </div>
+
+        <div class="filters mt-4">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Rechercher un produit..." class="form-control">
+            </div>
+            <div class="category-filter">
+                <select id="category-filter" class="form-control">
+                    <option value="">Toutes les catégories</option>
+                    <option value="Smartphones">Smartphones</option>
+                    <option value="Ordinateurs">Ordinateurs</option>
+                    <option value="Tablettes">Tablettes</option>
+                    <option value="Accessoires">Accessoires</option>
+                </select>
+            </div>
+            <div class="sort-filter">
+                <select id="sort-filter" class="form-control">
+                    <option value="prix-asc">Prix croissant</option>
+                    <option value="prix-desc">Prix décroissant</option>
+                    <option value="nom-asc">Nom A-Z</option>
+                    <option value="nom-desc">Nom Z-A</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="products-container" class="grid mt-4">
+            <!-- Les produits seront chargés ici -->
+        </div>
+    </main>
+
+    <script src="/js/products.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/security.js"></script>
+</body>
+</html> 

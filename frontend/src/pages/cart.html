@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>Notre Boutique</h1>
+            <div class="nav-links">
+                <a href="/">Accueil</a>
+                <a href="/products.html">Produits</a>
+                <a href="/cart.html" class="cart-link active">
+                    Panier
+                    <span id="cart-badge" class="badge">0</span>
+                </a>
+                <div class="auth-links">
+                    <a href="/profile.html" id="profileLink" style="display: none;">Mon Profil</a>
+                    <a href="/login.html" id="loginLink">Connexion</a>
+                    <a href="/register.html" id="registerLink">Inscription</a>
+                    <button id="logoutBtn" style="display: none;" class="btn">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <div class="cart-header">
+            <h2>Mon Panier</h2>
+        </div>
+
+        <div id="cart-container" class="mt-4">
+            <!-- Le contenu du panier sera chargé ici -->
+        </div>
+
+        <div id="cart-summary" class="card mt-4" style="display: none;">
+            <div class="cart-total">
+                <h3>Total: <span id="cart-total">0.00</span> €</h3>
+            </div>
+            <div class="cart-actions">
+                <button id="clear-cart" class="btn btn-danger">Vider le panier</button>
+                <button id="checkout-btn" class="btn btn-primary">Commander</button>
+            </div>
+        </div>
+
+        <div id="empty-cart-message" class="text-center mt-4" style="display: none;">
+            <p>Votre panier est vide</p>
+            <a href="/products.html" class="btn btn-primary">Voir les produits</a>
+        </div>
+    </main>
+</body>
+</html> 

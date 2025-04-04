@@ -54,6 +54,11 @@ module.exports = {
             template: './src/pages/product-form.html',
             filename: 'product-form.html',
             chunks: ['product-form']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/pages/dashboard.html',
+            filename: 'dashboard.html',
+            chunks: ['dashboard']
         })
     ],
     devServer: {

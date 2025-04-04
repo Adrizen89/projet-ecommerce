@@ -6,6 +6,7 @@ export function updateNavigation() {
     const profileLink = document.getElementById('profileLink');
     const loginLink = document.getElementById('loginLink');
     const registerLink = document.getElementById('registerLink');
+    const dashboardLink = document.getElementById('dashboardLink');
     const logoutBtn = document.getElementById('logoutBtn');
 
     if (token) {
@@ -44,6 +45,7 @@ export function updateNavigation() {
         if (logoutBtn) logoutBtn.style.display = 'none';
         if (loginLink) loginLink.style.display = 'block';
         if (registerLink) registerLink.style.display = 'block';
+        if (dashboardLink) dashboardLink.style.display = 'block';
         if (cartBadge) cartBadge.style.display = 'none';
     }
 } 

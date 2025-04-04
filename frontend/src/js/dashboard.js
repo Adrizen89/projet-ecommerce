@@ -1,12 +1,19 @@
 class Dashboard {
     static async loadStats() {
         try {
-            const response = await fetch('http://localhost:5000/api/stats', {
+            const token = localStorage.getItem('token');
+            console.log("Token:", token);
+            const response = await fetch('http://localhost:5001/api/stats', {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${token}`
                 }
             });
+            if (!response.ok) {
+                console.error('La réponse n\'est pas OK. Code:', response.status);
+                return;
+            }
             const stats = await response.json();
+            console.log("Données reçues pour les stats:", stats);
             this.displayStats(stats);
         } catch (error) {
             console.error('Erreur lors du chargement des statistiques:', error);
@@ -15,16 +22,12 @@ class Dashboard {
 
     static displayStats(stats) {
         const container = document.getElementById('stats-container');
-        if (!container) return;
-
-        const html = stats.map(stat => `
-            <div class="stat-item p-4 bg-gray-50 rounded-lg">
-                <h3 class="font-bold">${stat.nom}</h3>
-                <p class="text-2xl">${stat.compte} produits</p>
-            </div>
-        `).join('');
-
-        container.innerHTML = html;
+        if (!container) {
+            console.error('Element stats-container introuvable dans le HTML');
+            return;
+        }
+        // Affichage en forme brute (JSON indenté)
+        container.innerHTML = `<pre>${JSON.stringify(stats, null, 2)}</pre>`;
     }
 
     static async init() {
@@ -36,14 +39,13 @@ class Dashboard {
                 
                 const formData = new FormData(form);
                 try {
-                    const response = await fetch('http://localhost:5000/api/products', {
+                    const response = await fetch('http://localhost:5001/api/products', {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('token')}`
                         },
                         body: formData
                     });
-
                     if (response.ok) {
                         alert('Produit ajouté avec succès');
                         form.reset();
@@ -67,4 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
     Dashboard.init();
 });
 
-export default Dashboard; 
+export default Dashboard;
